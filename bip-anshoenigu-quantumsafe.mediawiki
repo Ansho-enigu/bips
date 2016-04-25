@@ -1,0 +1,24 @@
+<pre>
+	BIP: anshoenigu-quantumsafe
+	Title: Quantum Safe Transactions
+	Author: Ansho Enigu <Ansho-Enigu@gmx.co.uk>
+	Status: Draft
+	Type: Standards Track
+	Created: 2016-04-17
+</pre>
+
+==Abstract==
+In this BIP I'am going to solve a problem that could destroy bitcoin. It Will Discribe 4 new OP_CODES.
+
+==Summary==
+The 4 new OP_CODES are CheckSig's using the lamport signature algorithm.
+
+* OP_LAMPORTCHECKSIG
+* OP_LAMPORTCHECKSIGVERIFY
+
+* OP_LAMPORTCHECKMULTISIG
+* OP_LAMPORTCHECKMULTISIGVERIFY
+
+Each 	OP_CODE has the same behaviour as it's ecdsa counterpart.
+
+

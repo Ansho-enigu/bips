@@ -8,7 +8,7 @@
 </pre>
 
 ==Abstract==
-In this BIP I'am going to solve a problem that could destroy bitcoin. It Will Discribe 4 new OP_CODES.
+In this BIP I'am going to solve a problem that could destroy bitcoin (in other word's quantum computing). It Will Discribe 4 new quantum proof OP_CODES.
 
 ==Summary==
 The 4 new OP_CODES are CheckSig's using the lamport signature algorithm.
@@ -21,4 +21,12 @@ The 4 new OP_CODES are CheckSig's using the lamport signature algorithm.
 
 Each 	OP_CODE has the same behaviour as it's ecdsa counterpart.
 
+==Motivation==
+To quantum proof bitcoin with a Lamport based signicticture system.
 
+==Specification==
+
+==Implementation==
+
+==Copyright==
+This document has been put in the public domain.

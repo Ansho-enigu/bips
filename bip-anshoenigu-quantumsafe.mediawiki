@@ -11,7 +11,7 @@
 In this BIP I'am going to solve a problem that could destroy bitcoin (in other word's quantum computing). It Will Discribe 4 new quantum proof OP_CODES.
 
 ==Summary==
-The 4 new OP_CODES are CheckSig's using the lamport signature algorithm.
+The 4 new OP_CODES are CheckSig's using a lamport signature inspired algorithm.
 
 * OP_LAMPORTCHECKSIG
 * OP_LAMPORTCHECKSIGVERIFY
@@ -25,8 +25,15 @@ Each 	OP_CODE has the same behaviour as it's ecdsa counterpart.
 To quantum proof bitcoin with a Lamport based signicticture system.
 
 ==Specification==
+===What We Will Use===
+The signincture algorithm we use will be a version of lamport using hash ladders suggested by karlgluck [here](https://gist.github.com/karlgluck/8412807).
+===Private Key Compression===
+To Compress the private key we will use a xor Ripemd-160 as a psuedo random genarator.
+We Will use a 512-bit seed for creating the private key but in main use users will use the 512-bit seed.
 
+===Public Key Compression===
 ==Implementation==
-
+==Refrences==
+[1](https://gist.github.com/karlgluck/8412807) karlgluck's lamport varient
 ==Copyright==
 This document has been put in the public domain.

@@ -26,7 +26,7 @@ To quantum proof bitcoin with a Lamport based signicticture system.
 
 ==Specification==
 ===What We Will Use===
-The signincture algorithm we use will be a version of lamport using hash ladders suggested by karlgluck [here](https://gist.github.com/karlgluck/8412807).
+The signincture algorithm we use will be a version of lamport using hash ladders suggested by karlgluck [https://gist.github.com/karlgluck/8412807 here].
 ===Private Key Compression===
 To Compress the private key we will use a xor Ripemd-160 as a psuedo random genarator.
 We Will use a 512-bit seed for creating the private key but in main use users will use the 512-bit seed.
@@ -34,6 +34,6 @@ We Will use a 512-bit seed for creating the private key but in main use users wi
 ===Public Key Compression===
 ==Implementation==
 ==Refrences==
-[1](https://gist.github.com/karlgluck/8412807) karlgluck's lamport varient
+[https://gist.github.com/karlgluck/8412807 1] karlgluck's lamport varient
 ==Copyright==
 This document has been put in the public domain.

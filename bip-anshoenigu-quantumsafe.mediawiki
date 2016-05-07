@@ -31,9 +31,17 @@ The signincture algorithm we use will be a version of lamport using hash ladders
 To Compress the private key we will use a xor Ripemd-160 as a psuedo random genarator.
 We Will use a 512-bit seed for creating the private key but in main use users will use the 512-bit seed.
 
-===Public Key Compression===
+===Public Key and Signicture Compression===
+The hash ladder
 ==Implementation==
+I have started work on a implementation of this at https://github.com/Ansho-enigu/bitcoin/
+
+i added 2 new files in crypto/
+*lamport.h
+*lamport.cpp
+
+also i have added 4 new OP_Codes in the script interpreter
 ==Refrences==
-[https://gist.github.com/karlgluck/8412807 1] karlgluck's lamport varient
+[https://gist.github.com/karlgluck/8412807 \[1\]] karlgluck's lamport varient
 ==Copyright==
 This document has been put in the public domain.

@@ -24,24 +24,38 @@ Each of these OPCODES will have three inputs {sig} {merkle_witness} {root_public
 * OP_LAMPORTCHECKMULTISIG
 * OP_LAMPORTCHECKMULTISIGVERIFY
 These other OPCODES will follow an adapted
+
 ==Specification==
+
 ===What We Will Use===
-The signincture algorithm we use will be a version of lamport using hash ladders suggested by karlgluck [https://gist.github.com/karlgluck/8412807 here].
+The signature algorithm we use will be a version of lamport using hash ladders suggested by karlgluck [https://gist.github.com/karlgluck/8412807 here] but we will use RIPEMD-160.
 We will use merkle trees to allow you to sign multiple times without endangering your bitcoin's.
 
 ===Private Key Compression===
 To compress the private key we will use a Ripemd-160 Hash as a pseudo random generator.
 We will use a 512-bit seed for creating the private key but in main use users will use the 512-bit seed but you could use any size want.
+To create the keys we run the seed through a for loop and concatenate it with the loop index and hash it this gives us is our 160-bit will be a part of our private key for the signatures.
 
 ===Public Key and Signature Compression===
 The hash ladder we will use lowers key size by 30% using 8-bit chunk sizes.
+It divides the document hash into chunks which should be around 8-bit's.
+Your public keys for each chunk would be a pair of 160-bit hashes of 160-bit numbers hashed 162 times.
 
 ===Multiple Use===
-To allow multiple use signatures we will
+To allow multiple use signatures we will create a merkle tree with the branches being the hash of the public key for the entire document.
+These hashes will have the size of 160 bit's the merkle witness is the path on the merkle tree to cryptographically prove that this key set belongs to the batch of keys.
+The structure of this witness will be shown bellow
+ [publickey1, publickeyhash2, nodehash12, ...]
+The first public key is what is used for checking the signature is correct but the rest is for proving the public key belongs to a roothash.
 
+To verify that this truly does belong to a roothash you would hash the public key the first element in the array this would be put in a variable (let’s call it tempverifyhash).
+Then you would hash the concatenated string of tempverifyhash and publickeyhash2 then set that to tempverifyhash.
+You do this in a loop until there is no value left in the array if this is equal to the roothash this public key is valid.
+
+now you can verify the signature with the public key (if the public key was genuine).
 ==Implementation==
 
-===the Code===
+===The Code===
 I have started work on an implementation of this at https://github.com/Ansho-enigu/bitcoin/
 
 I added 2 new files in crypto/
@@ -58,8 +72,8 @@ Otherwise this will have a negative effect on scaling for bitcoin.
 
 ===Transaction Script===
 A normal transaction using this OPCODE would be.
- ScriptPubKey {root public key} OP_LAMPORTCHECKSIGVERIFY
- ScriptSig {sig} {merkle_witness}
+ ScriptPubKey: {root public key} OP_LAMPORTCHECKSIGVERIFY
+ ScriptSig: {sig} {merkle_witness}
 
 ==References==
 [https://gist.github.com/karlgluck/8412807 [1]] karlgluck's lamport variant

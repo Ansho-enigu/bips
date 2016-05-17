@@ -54,10 +54,8 @@ otherwise this will have a negative effect on scaling for bitcoin.
 
 ===Transaction Script===
 a normal transaction using this OPCODE would be.
-<pre>
- scriptPubKey: <root public key> OP_LAMPORTCHECKSIGVERIFY
- scriptSig: <sig> <merkle_witness>
-</pre>
+ scriptPubKey <root public key> OP_LAMPORTCHECKSIGVERIFY
+ scriptSig <sig> <merkle_witness>
 ==Refrences==
 [https://gist.github.com/karlgluck/8412807 [1]] karlgluck's lamport varient
 ==Copyright==

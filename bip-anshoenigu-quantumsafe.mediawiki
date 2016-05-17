@@ -1,39 +1,43 @@
 <pre>
 	BIP: anshoenigu-quantumsafe
 	Title: Quantum Safe Transactions
-	Author: Ansho Enigu <Ansho-Enigu@gmx.co.uk>
+	Author: Ansho Enigu <ansho-enigu@gmx.co.uk>
 	Status: Draft
 	Type: Standards Track
 	Created: 2016-04-17
 </pre>
 
 ==Abstract==
-In this BIP I'am going to solve a problem that could destroy bitcoin (in other word's quantum computing). It Will Discribe 4 new quantum proof OP_CODES.
+In this BIP describes 4 new opcodes for quantum proofing the bitcoin system.
+
+==Motivation==
+The bitcoin protocool using escada for transactions is not quantum secure and this may allow coins held by a bitcoin user to be stolen so i plan to interduce a new set of OPCODES.
 
 ==Summary==
-The 4 new OP_CODES are CheckSig's using a lamport signature inspired algorithm.
+The 4 new OP_CODES are CheckSig's using a lamport signature inspired algorithm they will replace NOP4 to NOP7.
 
 * OP_LAMPORTCHECKSIG
 * OP_LAMPORTCHECKSIGVERIFY
+Each of these OPCODES  will will have three inputs <sig> <merkle_witness> <root_public_key> (root_public_key is used as an address).
 
 * OP_LAMPORTCHECKMULTISIG
 * OP_LAMPORTCHECKMULTISIGVERIFY
 
-Each 	OP_CODE has the same behaviour as it's ecdsa counterpart.
-
-==Motivation==
-To quantum proof bitcoin with a Lamport based signicticture system.
-
 ==Specification==
 ===What We Will Use===
 The signincture algorithm we use will be a version of lamport using hash ladders suggested by karlgluck [https://gist.github.com/karlgluck/8412807 here].
+Also we  will use merkle trees to allow you to sign multipul times without indangering your bitcoins.
 ===Private Key Compression===
-To Compress the private key we will use a xor Ripemd-160 as a psuedo random genarator.
-We Will use a 512-bit seed for creating the private key but in main use users will use the 512-bit seed.
+To Compress the private key we will use a Ripemd-160 Hash as a psuedo random genarator.
+We will use a 512-bit seed for creating the private key but in main use users will use the 512-bit seed but you could use any size which .
 
 ===Public Key and Signicture Compression===
 The hash ladder
+
+===Multiple Use===
+To Allow multiple use signictures we will
 ==Implementation==
+===The Code===
 I have started work on a implementation of this at https://github.com/Ansho-enigu/bitcoin/
 
 i added 2 new files in crypto/
@@ -41,7 +45,20 @@ i added 2 new files in crypto/
 *lamport.cpp
 
 also i have added 4 new OP_Codes in the script interpreter
+
+==Rationale==
+
+===scaling===
+this BIP must not be implemented until segwit is added and lightning is in use for most tx's.
+otherwise this will have a negative effect on scaling for bitcoin.
+
+===Transaction Script===
+a normal transaction using this OPCODE would be.
+<pre>
+ scriptPubKey: <root public key> OP_LAMPORTCHECKSIGVERIFY
+ scriptSig: <sig> <merkle_witness>
+</pre>
 ==Refrences==
-[https://gist.github.com/karlgluck/8412807 \[1\]] karlgluck's lamport varient
+[https://gist.github.com/karlgluck/8412807 [1]] karlgluck's lamport varient
 ==Copyright==
 This document has been put in the public domain.

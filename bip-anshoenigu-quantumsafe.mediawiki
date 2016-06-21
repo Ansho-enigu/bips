@@ -1,7 +1,7 @@
 <pre>
-	BIP: anshoenigu-quantumsafe
+	BIP: alonzocoeus-quantumsafe
 	Title: Quantum Safe Transactions
-	Author: Ansho Enigu <ansho-enigu@gmx.co.uk>
+	Author: Ansho Enigu <alonzo.coeus@mail.com>
 	Status: Draft
 	Type: Standards Track
 	Created: 2016-04-17

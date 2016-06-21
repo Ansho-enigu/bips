@@ -67,7 +67,7 @@ Also I have added 4 new Opcodes in the script interpreter
 ==Rationale==
 
 ===Scaling===
-This BIP must not be implemented until sewed is added and lightning is in use for most tx's.
+This BIP must not be implemented until segwit is added and lightning is in use for most tx's.
 Otherwise this will have a negative effect on scaling for bitcoin.
 
 ===Transaction Script===

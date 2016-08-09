@@ -1,7 +1,7 @@
 <pre>
 	BIP: alonzocoeus-quantumsafe
 	Title: Quantum Safe Transactions
-	Author: Ansho Enigu <alonzo.coeus@mail.com>
+	Author: Alonzo Coeus <alonzo.coeus@mail.com>
 	Status: Draft
 	Type: Standards Track
 	Created: 2016-04-17
@@ -23,7 +23,7 @@ Each of these OPCODES will have three inputs {sig} {merkle_witness} {root_public
 
 * OP_LAMPORTCHECKMULTISIG
 * OP_LAMPORTCHECKMULTISIGVERIFY
-These other OPCODES will follow an adapted
+These other OPCODES will follow karlglucks lamport variant[https://gist.github.com/karlgluck/8412807 [1]] and use a merle tree to allow multiple signatures with one master key
 
 ==Specification==
 

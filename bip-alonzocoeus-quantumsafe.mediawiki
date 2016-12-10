@@ -23,7 +23,7 @@ Each of these OPCODES will have three inputs {sig} {merkle_witness} {root_public
 
 * OP_LAMPORTCHECKMULTISIG
 * OP_LAMPORTCHECKMULTISIGVERIFY
-These other OPCODES will follow karlglucks lamport variant[https://gist.github.com/karlgluck/8412807 [1]] and use a merle tree to allow multiple signatures with one master key
+These other OPCODES will follow karlglucks lamport variant[https://gist.github.com/karlgluck/8412807 [1]] and use a merkle tree to allow multiple signatures with one master key
 
 ==Specification==
 
@@ -56,7 +56,7 @@ now you can verify the signature with the public key (if the public key was genu
 ==Implementation==
 
 ===The Code===
-I have started work on an implementation of this at https://github.com/Ansho-enigu/bitcoin/
+I have started work on an implementation of this at https://github.com/Alonzo-Coeus/bitcoin/
 
 I added 2 new files in crypto/
 *lamport.h

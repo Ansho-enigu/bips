@@ -69,6 +69,7 @@ Also I have added 4 new Opcodes in the script interpreter
 ===Scaling===
 This BIP must not be implemented until segwit is added and lightning is in use for most tx's.
 Otherwise this will have a negative effect on scaling for bitcoin.
+This is mostly just a safe gaurd for when quantum computers are main stream
 
 ===Transaction Script===
 A normal transaction using this OPCODE would be.
